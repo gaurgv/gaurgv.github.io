@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let particlesArray;
 
-    const numberOfParticles = 100;
+    const numberOfParticles = 55;
 
     // Particle class
     class Particle {
@@ -49,8 +49,8 @@ document.addEventListener('DOMContentLoaded', function () {
             let size = Math.random() * 5;
             let x = Math.random() * (window.innerWidth - size * 2);
             let y = Math.random() * (window.innerHeight - size * 2);
-            let directionX = (Math.random() * 0.4) - 0.2;
-            let directionY = (Math.random() * 0.4) - 0.2;
+            let directionX = (Math.random() * 2) - 1;
+            let directionY = (Math.random() * 2) - 1;
             let color = 'rgba(0, 255, 255, 0.8)';
 
             particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
@@ -59,8 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Animate particles
     function animate() {
-        requestAnimationFrame(animate);
-        ctx.fillStyle = '#101010';
+        ctx.fillStyle = 'rgba(16, 16, 16, 0.5)';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
         for (let i = 0; i < particlesArray.length; i++) {
@@ -68,6 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         connect();
+        requestAnimationFrame(animate);
     }
 
     // Check if particles are close enough to draw a line between them
