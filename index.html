@@ -4,8 +4,21 @@
     <title>My Portfolio</title>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <link rel="stylesheet" type="text/css" href="css/styles.scss">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+    </style>
 </head>
 <body>
+    <canvas id="neuronCanvas"></canvas>
     <header>
         <h1>My Portfolio</h1>
         <nav>
