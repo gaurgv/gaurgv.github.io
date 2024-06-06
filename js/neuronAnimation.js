@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let particlesArray;
 
-    const numberOfParticles = 150;
+    const numberOfParticles = 100;
 
     // Particle class
     class Particle {
@@ -23,7 +23,9 @@ document.addEventListener('DOMContentLoaded', function () {
         draw() {
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
-            ctx.fillStyle = '#00f';
+            ctx.fillStyle = this.color;
+            ctx.shadowColor = this.color;
+            ctx.shadowBlur = 20;
             ctx.fill();
         }
         // Check particle position, move the particle, draw the particle
@@ -49,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
             let y = Math.random() * (window.innerHeight - size * 2);
             let directionX = (Math.random() * 0.4) - 0.2;
             let directionY = (Math.random() * 0.4) - 0.2;
-            let color = '#00f';
+            let color = 'rgba(0, 255, 255, 0.8)';
 
             particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
         }
@@ -58,7 +60,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // Animate particles
     function animate() {
         requestAnimationFrame(animate);
-        ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+        ctx.fillStyle = '#101010';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
 
         for (let i = 0; i < particlesArray.length; i++) {
             particlesArray[i].update();
@@ -76,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     + ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
                 if (distance < (canvas.width/7) * (canvas.height/7)) {
                     opacityValue = 1 - (distance/20000);
-                    ctx.strokeStyle = 'rgba(0, 0, 255,' + opacityValue + ')';
+                    ctx.strokeStyle = 'rgba(0, 255, 255,' + opacityValue + ')';
                     ctx.lineWidth = 1;
                     ctx.beginPath();
                     ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
