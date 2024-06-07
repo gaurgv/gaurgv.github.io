@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
             ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
             ctx.fillStyle = this.color;
             ctx.shadowColor = this.color;
-            ctx.shadowBlur = 20;
+            ctx.shadowBlur = 35;
             ctx.fill();
         }
         // Check particle position, move the particle, draw the particle
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
             let y = Math.random() * (window.innerHeight - size * 2);
             let directionX = (Math.random() * 2) - 1;
             let directionY = (Math.random() * 2) - 1;
-            let color = 'rgba(0, 255, 255, 0.5)';
+            let color = 'rgba(255, 167, 0, 0.9)';
 
             particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
         }
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     + ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
                 if (distance < (canvas.width/7) * (canvas.height/7)) {
                     opacityValue = 1 - (distance/20000);
-                    ctx.strokeStyle = 'rgba(0, 255, 255,' + opacityValue + ')';
+                    ctx.strokeStyle = 'rgba(243, 156, 18,' + opacityValue + ')';
                     ctx.lineWidth = 1;
                     ctx.beginPath();
                     ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
