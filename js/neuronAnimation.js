@@ -59,8 +59,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Animate particles
     function animate() {
-        ctx.fillStyle = 'rgba(16, 16, 16, 0.8)';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        //ctx.fillStyle = 'rgba(16, 16, 16, 0.8)';
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         for (let i = 0; i < particlesArray.length; i++) {
             particlesArray[i].update();
