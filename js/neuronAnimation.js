@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let particlesArray;
 
-    const numberOfParticles = 60;
+    const numberOfParticles = 70;
 
     // Particle class
     class Particle {
